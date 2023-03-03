@@ -13,25 +13,29 @@ def help():
 if __name__ == "__main__":
     print("Welcome to LightSH!")
 
-    while 1 == 1:
-        temp = input("$ ")
-        cmd = temp.lower()
+    try:
+        while 1 == 1:
+            temp = input("$ ")
+            cmd = temp.lower()
 
-        if cmd in ["help", "?"]:
-            help()
+            if cmd in ["help", "?"]:
+                help()
 
-        if cmd == "exit":
-            print("Exiting..")
-            sys.exit(0)
+            if cmd in ["exit", "help"]:
+                print("Exiting..")
+                sys.exit(0)
 
-        if cmd == "os":
-            print(platform.version())
+            if cmd == "os":
+                print(platform.version())
 
-        if cmd == "neofetch":
-            os.system("neofetch")
+            if cmd == "neofetch":
+                os.system("neofetch")
 
-        if cmd == "weather":
-            city = input("Enter a city: ")
+            if cmd == "weather":
+                city = input("Enter a city: ")
 
-            os.system(f"curl wttr.in/{city}")
+                os.system(f"curl wttr.in/{city}")
+    except KeyboardInterrupt:
+        print("Exiting using the fast way 😎")
+
 
