@@ -1,9 +1,11 @@
 import os
 import sys
 import platform
+import time
 
-def help():
-    cmds = ["help", "exit", "os", "neofetch", "weather"]
+
+def cmds_help():
+    cmds = ["help", "exit", "os", "neofetch", "weather", "search"]
     print("Commands: \n")
 
     for command in cmds:
@@ -15,13 +17,13 @@ if __name__ == "__main__":
 
     try:
         while 1 == 1:
-            temp = input("$ ")
+            temp = input("LightSH $ ")
             cmd = temp.lower()
 
             if cmd in ["help", "?"]:
-                help()
+                cmds_help()
 
-            if cmd in ["exit", "help"]:
+            if cmd in ["exit", "kick me out"]:
                 print("Exiting..")
                 sys.exit(0)
 
@@ -35,7 +37,9 @@ if __name__ == "__main__":
                 city = input("Enter a city: ")
 
                 os.system(f"curl wttr.in/{city}")
+
     except KeyboardInterrupt:
-        print("Exiting using the fast way 😎")
+        print("Exiting..")
+        sys.exit(0)
 
 
